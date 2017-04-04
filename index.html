@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/images/jq.png">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.css">
+    <title>Ajx Json || Weather</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <section id="weather">
+    <div class="weather-box">
+      <h4 id="country">Check weather update</h4>
+      <h1 id="city">Enter city name</h1>
+      <h3><span id="temp">C : 00</span><sup>o</sup>C</h3>
+      <h3><span id="temp-f">F : 00</span><sup>o</sup>F</h3>
+      <ul class="list-inline">
+        <li><input type="text" name="wt" class="form-control"></li>
+        <li>
+      <button id="go-weather" class="btn btn-primary" type="button">Weather Update</button></li>
+      </ul>
+      <a class="twitter-share-button"><i class="fa fa-twitter" aria-hidden="true"> Tweet!</i></a>
+    </div>
+  </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+      $(function(){
+
+        $("#go-weather").click(function(){
+          var City_name = $("input").val();
+          GoWeather(City_name);
+        });
+        function GoWeather(City_name){
+          $.ajax({
+          url:"http://api.apixu.com/v1/current.json?key=81cd2a9753a943f9a33181841172703&q="+City_name,
+          dataType:"json",
+          success:function(data){
+            console.log(data);
+
+            $("#country").text(data.location.country);
+            $("#temp").text("Celsius: "+ data.current.temp_c);
+            $("#temp-f").text("Fahrenheit: "+ data.current.temp_f);
+
+            $("#city").text(data.location.name);
+            var a = data.location.country;
+            var b = data.location.name;
+            var c = data.current.temp_c;
+            var d = data.current.temp_f;
+            $(".twitter-share-button").attr("href","https://twitter.com/intent/tweet?text="+ "Country name:"+ a + ","+ " City name:"+ b +"," + " Temperature in Celsius:"+ c + "'C"+ " Temperature in Fahrenheit:"+ d + "'F");
+          },
+          error:function(){
+            alert("Please enter correct city name!");
+          }
+        })
+        }
+      });
+    </script>
+
+  </body>
+</html>

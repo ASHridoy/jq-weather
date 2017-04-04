@@ -1,0 +1,41 @@
+body{
+	background: url(../images/mountains.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+}
+.weather-box{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border: 1px solid #eee;
+    box-shadow: 5px 5px 12px #0065a5;
+	padding: 40px;
+	text-align: center;
+}
+ul li{
+	margin-top: 20px;
+}
+.weather-box a{
+	background: #79BEF1;
+	color: #fff;
+	font-size: 16px;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 65px;
+	border-radius: 20px;
+	transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+}
+.weather-box a:hover{
+	background: #fff;
+	color: #79BEF1;
+	border: 1px solid #79BEF1;
+}
+.weather-box a i{
+}
