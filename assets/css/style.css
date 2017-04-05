@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan|Pacifico');
 body{
 	background: url(../images/mountains.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100vh;
 	position: relative;
+	font-family: 'Baloo Chettan', cursive !important;
 }
 .overlay{
 	position: absolute;
